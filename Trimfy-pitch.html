@@ -728,19 +728,17 @@ body:has(:is(#portada,#solucion,#gracias).active) .progress span{background:var(
   .market-sizing-metrics dd{align-self:center}
   #tam-sam-som .source{text-align:left}
 }
-.survey-charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,3vw,48px);align-items:start}
-.survey-charts .evidence{display:block}
-.survey-charts h3{min-height:2.3em;margin:0;font-size:clamp(20px,2.15vw,32px);line-height:1.15}
-.survey-charts ul{list-style:none;margin:clamp(10px,2vh,22px) 0 0;padding:0;display:grid;gap:clamp(8px,1.5vh,16px)}
-.survey-charts li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px 10px;align-items:baseline;font-size:clamp(17px,1.6vw,24px);line-height:1.12;color:var(--white)}
-.survey-charts strong{grid-column:2;grid-row:1;font-size:1.22em;font-variant-numeric:tabular-nums;color:var(--signal)}
-.survey-charts meter{grid-column:1/-1;grid-row:2;display:block;width:100%;height:clamp(10px,1.55vh,17px);accent-color:var(--signal)}
-.survey-charts meter::-webkit-meter-bar{background:#334765;border:0;border-radius:2px}
-.survey-charts meter::-webkit-meter-optimum-value{background:var(--signal);border-radius:2px}
-.survey-charts meter::-moz-meter-bar{background:var(--signal)}
+.survey-charts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(20px,4vw,60px)}
+.survey-metric{display:grid;grid-template-rows:auto 1fr auto;gap:clamp(8px,1.7vh,18px)}
+.survey-metric strong{display:block;color:var(--accent);font-size:clamp(52px,8vw,116px);line-height:.95;font-variant-numeric:tabular-nums}
+.survey-metric strong span{font-size:.48em}
+.survey-metric p{margin:0;color:var(--white);font-size:clamp(17px,1.8vw,26px);line-height:1.2}
+.survey-metric meter{display:block;width:100%;height:clamp(16px,2.7vh,28px);accent-color:var(--accent)}
+.survey-metric meter::-webkit-meter-bar{background:#334765;border:0;border-radius:4px}
+.survey-metric meter::-webkit-meter-optimum-value{background:var(--accent);border-radius:4px}
+.survey-metric meter::-moz-meter-bar{background:var(--accent)}
 @media(max-width:760px) and (orientation:portrait){
   .survey-charts{grid-template-columns:1fr}
-  .survey-charts h3{min-height:0}
 }
 </style>
 </head>
@@ -971,40 +969,27 @@ body:has(:is(#portada,#solucion,#gracias).active) .progress span{background:var(
   </section>
 
 
-  <section class="slide proof" id="encuesta-barberos" data-title="Gestión de reservas en barberías" data-notes="Ejemplo ilustrativo a partir de las tres capturas. Los recuentos se han reconstruido a partir de las barras. Sustituir por los datos de campo antes de presentarlo como encuesta.">
+  <section class="slide proof" id="encuesta-barberos" data-title="Gestionar reservas lleva tiempo y las incidencias son frecuentes" data-notes="Ejemplo ilustrativo basado en 83 perfiles. Porcentajes redondeados: 65 de 83 envían recordatorios manualmente o carecen de sistema; 40 de 83 dedican 30 minutos o más al día; 48 de 83 registran tres o más cancelaciones o ausencias por semana. Los recuentos se reconstruyeron a partir de las capturas.">
     <div class="inner stack">
-      <h2 class="enter">Gestión de reservas en barberías</h2>
-      <p class="source">Ejemplo ilustrativo · 83 perfiles</p>
+      <h2 class="enter">Gestionar reservas lleva tiempo y las incidencias son frecuentes</h2>
       <div class="survey-charts enter">
-        <div class="evidence">
-          <h3>Gestión de recordatorios</h3>
-          <ul>
-            <li><span>Manuales</span><meter min="0" max="83" value="45" aria-label="Manuales"></meter><strong>45</strong></li>
-            <li><span>Sin sistema</span><meter min="0" max="83" value="20" aria-label="Sin sistema"></meter><strong>20</strong></li>
-            <li><span>Automáticos</span><meter min="0" max="83" value="18" aria-label="Automáticos"></meter><strong>18</strong></li>
-          </ul>
+        <div class="survey-metric">
+          <strong>78<span> %</span></strong>
+          <p>Envía recordatorios a mano o carece de sistema</p>
+          <meter min="0" max="100" value="78" aria-hidden="true"></meter>
         </div>
-        <div class="evidence">
-          <h3>Minutos al día gestionando reservas</h3>
-          <ul>
-            <li><span>Menos de 15</span><meter min="0" max="83" value="10" aria-label="Menos de 15"></meter><strong>10</strong></li>
-            <li><span>15–29</span><meter min="0" max="83" value="33" aria-label="15–29"></meter><strong>33</strong></li>
-            <li><span>30–44</span><meter min="0" max="83" value="14" aria-label="30–44"></meter><strong>14</strong></li>
-            <li><span>45–59</span><meter min="0" max="83" value="11" aria-label="45–59"></meter><strong>11</strong></li>
-            <li><span>60 o más</span><meter min="0" max="83" value="15" aria-label="60 o más"></meter><strong>15</strong></li>
-          </ul>
+        <div class="survey-metric">
+          <strong>48<span> %</span></strong>
+          <p>Dedica 30 minutos o más al día a gestionar reservas</p>
+          <meter min="0" max="100" value="48" aria-hidden="true"></meter>
         </div>
-        <div class="evidence">
-          <h3>Cancelaciones o ausencias por semana</h3>
-          <ul>
-            <li><span>0</span><meter min="0" max="83" value="14" aria-label="0"></meter><strong>14</strong></li>
-            <li><span>1</span><meter min="0" max="83" value="6" aria-label="1"></meter><strong>6</strong></li>
-            <li><span>2</span><meter min="0" max="83" value="15" aria-label="2"></meter><strong>15</strong></li>
-            <li><span>3–4</span><meter min="0" max="83" value="23" aria-label="3–4"></meter><strong>23</strong></li>
-            <li><span>5 o más</span><meter min="0" max="83" value="25" aria-label="5 o más"></meter><strong>25</strong></li>
-          </ul>
+        <div class="survey-metric">
+          <strong>58<span> %</span></strong>
+          <p>Registra 3 o más cancelaciones o ausencias por semana</p>
+          <meter min="0" max="100" value="58" aria-hidden="true"></meter>
         </div>
       </div>
+      <p class="source">Ejemplo ilustrativo · 83 perfiles</p>
     </div>
   </section>
 
